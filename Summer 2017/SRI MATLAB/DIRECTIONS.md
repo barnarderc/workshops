@@ -1,0 +1,1 @@
+Download the workshop materials [here](https://drive.google.com/a/barnard.edu/file/d/0B61g9B-ZS8AzUXZjcDVoWmVlbHM/view?usp=sharing).
