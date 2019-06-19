@@ -1,1 +1,1 @@
-Please download the materials for the workshop here.
+Please download the materials for the workshop [here](https://drive.google.com/a/barnard.edu/file/d/0B61g9B-ZS8AzX1hZM1hXLXlES3c/view?usp=sharing).
