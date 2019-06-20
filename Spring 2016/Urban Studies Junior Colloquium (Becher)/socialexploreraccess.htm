@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="fb: http://www.facebook.com/2008/fbml content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#">
+<head>
+  <link rel="profile" href="http://www.w3.org/1999/xhtml/vocab" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1123.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="http://erc.barnard.edu/socialexploreraccess" />
+<link rel="shortlink" href="/socialexploreraccess" />
+<link rel="shortcut icon" href="https://erc.barnard.edu/sites/default/files/favicon_0.ico" type="image/vnd.microsoft.icon" />
+  <title>Gaining Access to Social Explorer | ERC</title>
+  <link type="text/css" rel="stylesheet" href="https://erc.barnard.edu/sites/default/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://erc.barnard.edu/sites/default/files/css/css_uyb4aWWFmt93DOhamgYdCtxKVjW0x95tJkrpZECocWU.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://erc.barnard.edu/sites/default/files/css/css_x-UVyReft35gx9BVLxkRgN03UwKTCgfpYd5zqhYY858.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" media="all" />
+<style>#sliding-popup.sliding-popup-bottom,#sliding-popup.sliding-popup-bottom .eu-cookie-withdraw-banner,.eu-cookie-withdraw-tab{background:#008eaa;}#sliding-popup.sliding-popup-bottom.eu-cookie-withdraw-wrapper{background:transparent}#sliding-popup .popup-content #popup-text h1,#sliding-popup .popup-content #popup-text h2,#sliding-popup .popup-content #popup-text h3,#sliding-popup .popup-content #popup-text p,.eu-cookie-compliance-secondary-button,.eu-cookie-withdraw-tab{color:#fff !important;}.eu-cookie-withdraw-tab{border-color:#fff;}.eu-cookie-compliance-more-button{color:#fff !important;}
+</style>
+  <!-- HTML5 element support for IE6-8 -->
+  <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="https://erc.barnard.edu/sites/default/files/js/js_5PZXP4nV5b_3fva034z6fHDsVBVUAMrIIecUxoDl5io.js"></script>
+<script src="https://erc.barnard.edu/sites/all/libraries/modernizr/modernizr.custom.04770.js?pt04w2"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write("<script src='/sites/all/modules/jquery_update/replace/jquery/1.11/jquery.min.js'>\x3C/script>")</script>
+<script>jQuery.migrateMute=true;jQuery.migrateTrace=false;</script>
+<script src="//code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+<script>window.jQuery && window.jQuery.migrateWarnings || document.write("<script src='/sites/all/modules/jquery_update/replace/jquery-migrate/1/jquery-migrate.min.js'>\x3C/script>")</script>
+<script src="https://erc.barnard.edu/sites/default/files/js/js_dWhBODswdXXk1M5Z5nyqNfGljmqwxUwAK9i6D0YSDNs.js"></script>
+<script src="https://erc.barnard.edu/sites/default/files/js/js_rJqiwqW8My6MBsOr2LShGYlkOC5oBpdBLhPq1wH7iQE.js"></script>
+<script src="https://erc.barnard.edu/sites/default/files/js/js_Tik8PIaz_eQ5I4FMzmjkWoPEs9jKBgTSauo1jgsNa6g.js"></script>
+<script src="https://erc.barnard.edu/sites/default/files/js/js_8fcgqn2k3OmjO7M1k97tF9xPJJu8rGf6xgBXv_-Nsko.js"></script>
+<script>var addthis_config = { data_ga_property: 'UA-40752463-4', data_ga_social: true };</script>
+<script src="https://erc.barnard.edu/sites/default/files/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-40752463-4", {"cookieDomain":"auto"});ga("send", "pageview");ga('create', 'UA-40752463-10', 'auto', 'clientTracker'); ga('clientTracker.send', 'pageview');</script>
+<script src="https://erc.barnard.edu/sites/default/files/js/js_TujNV6dHYZ1lxsg6-U0Qm83RKxr2CtTGrPcgvwA0LVM.js"></script>
+<script src="https://erc.barnard.edu/sites/default/files/js/js_TzreLhLnHgElCa2ketEGxBp8-6qt5gDIWRP11H1J6m4.js"></script>
+<script src="https://erc.barnard.edu/sites/default/files/js/js__JuFmti1OZYyBBidIUJvoDOZg81ze1_8XkKpzZ5SPsY.js"></script>
+<script>jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"erl_sitetheme","theme_token":"8A7VXI4X-TzYUs4bMF2wVCGQhMsImOM6KRi2Qs2UqYA","jquery_version":"1.11","js":{"0":1,"1":1,"sites\/all\/modules\/addthis\/addthis.js":1,"\/\/platform.twitter.com\/widgets.js":1,"sites\/all\/themes\/bootstrap\/js\/bootstrap.js":1,"sites\/all\/modules\/eu_cookie_compliance\/js\/eu_cookie_compliance.js":1,"public:\/\/google_tag\/google_tag.script.js":1,"sites\/all\/libraries\/modernizr\/modernizr.custom.04770.js":1,"\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/1.11.2\/jquery.min.js":1,"2":1,"3":1,"\/\/code.jquery.com\/jquery-migrate-1.4.1.min.js":1,"4":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/eu_cookie_compliance\/js\/jquery.cookie-1.4.1.min.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/jquery_update\/js\/jquery_update.js":1,"sites\/all\/modules\/extlink\/extlink.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/colorbox\/styles\/default\/colorbox_style.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox_load.js":1,"5":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"6":1,"sites\/all\/themes\/bootstrap\/js\/misc\/_progress.js":1,"sites\/all\/modules\/colorbox_node\/colorbox_node.js":1,"sites\/default\/themes\/microsite_2017\/bootstrap\/assets\/javascripts\/bootstrap\/affix.js":1,"sites\/default\/themes\/microsite_2017\/bootstrap\/assets\/javascripts\/bootstrap\/alert.js":1,"sites\/default\/themes\/microsite_2017\/bootstrap\/assets\/javascripts\/bootstrap\/button.js":1,"sites\/default\/themes\/microsite_2017\/bootstrap\/assets\/javascripts\/bootstrap\/carousel.js":1,"sites\/default\/themes\/microsite_2017\/bootstrap\/assets\/javascripts\/bootstrap\/collapse.js":1,"sites\/default\/themes\/microsite_2017\/bootstrap\/assets\/javascripts\/bootstrap\/dropdown.js":1,"sites\/default\/themes\/microsite_2017\/bootstrap\/assets\/javascripts\/bootstrap\/modal.js":1,"sites\/default\/themes\/microsite_2017\/bootstrap\/assets\/javascripts\/bootstrap\/tooltip.js":1,"sites\/default\/themes\/microsite_2017\/bootstrap\/assets\/javascripts\/bootstrap\/popover.js":1,"sites\/default\/themes\/microsite_2017\/bootstrap\/assets\/javascripts\/bootstrap\/scrollspy.js":1,"sites\/default\/themes\/microsite_2017\/bootstrap\/assets\/javascripts\/bootstrap\/tab.js":1,"sites\/default\/themes\/microsite_2017\/bootstrap\/assets\/javascripts\/bootstrap\/transition.js":1,"sites\/default\/themes\/microsite_2017\/dist\/js\/jquery.fitvids.js":1,"sites\/default\/themes\/microsite_2017\/dist\/js\/menu.js":1,"sites\/default\/themes\/microsite_2017\/dist\/js\/script.js":1,"sites\/default\/themes\/microsite_2017\/dist\/js\/microsite-global.js":1,"sites\/all\/themes\/bootstrap\/js\/misc\/ajax.js":1},"css":{"modules\/system\/system.base.css":1,"sites\/all\/modules\/calendar\/css\/calendar_multiday.css":1,"sites\/all\/modules\/colorbox_node\/colorbox_node.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"sites\/all\/modules\/date\/date_repeat_field\/date_repeat_field.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"sites\/all\/modules\/extlink\/extlink.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/colorbox\/styles\/default\/colorbox_style.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/oembed\/oembed.base.css":1,"sites\/all\/modules\/oembed\/oembed.theme.css":1,"sites\/all\/modules\/eu_cookie_compliance\/css\/eu_cookie_compliance.css":1,"sites\/all\/libraries\/fontawesome\/css\/font-awesome.css":1,"sites\/default\/themes\/microsite_2017\/dist\/css\/congress_blue.min.css":1,"https:\/\/fonts.googleapis.com\/css?family=Open+Sans:400,400i,700,700i":1,"0":1}},"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"better_exposed_filters":{"views":{"content_slideshow_slides":{"displays":{"content_slideshow_slides":{"filters":[]}}}}},"eu_cookie_compliance":{"popup_enabled":1,"popup_agreed_enabled":0,"popup_hide_agreed":0,"popup_clicking_confirmation":1,"popup_scrolling_confirmation":0,"popup_html_info":"\u003Cdiv\u003E\n  \u003Cdiv class=\u0022popup-content info\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n       Barnard College\u2019s website uses cookies and similar tools and technologies to understand the experience of our visitors. By continuing to use this website, you consent to Barnard College\u2019s usage of cookies and similar technologies in accordance with the \u003Ca href=\u0022\/cookie-notice\u0022\u003Ecollege\u2019s Cookie Notice\u003C\/a\u003E           \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022agree-button eu-cookie-compliance-default-button\u0022\u003EOK\u003C\/button\u003E\n          \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E","use_mobile_message":false,"mobile_popup_html_info":"\u003Cdiv\u003E\n  \u003Cdiv class=\u0022popup-content info\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n                  \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022agree-button eu-cookie-compliance-default-button\u0022\u003EOK\u003C\/button\u003E\n          \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E\n","mobile_breakpoint":"768","popup_html_agreed":"\u003Cdiv\u003E\n  \u003Cdiv class=\u0022popup-content agreed\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n       Thank you for accepting cookiesYou can now hide this message or find out more about cookies.     \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022hide-popup-button eu-cookie-compliance-hide-button\u0022\u003EHide\u003C\/button\u003E\n          \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E","popup_use_bare_css":false,"popup_height":"auto","popup_width":"100%","popup_delay":1000,"popup_link":"\/privacy-policy","popup_link_new_window":1,"popup_position":null,"popup_language":"en","store_consent":false,"better_support_for_screen_readers":0,"reload_page":0,"domain":"","popup_eu_only_js":0,"cookie_lifetime":"100","cookie_session":false,"disagree_do_not_show_popup":0,"method":"default","whitelisted_cookies":"","withdraw_markup":"\u003Cbutton type=\u0022button\u0022 class=\u0022eu-cookie-withdraw-tab\u0022\u003EPrivacy settings\u003C\/button\u003E\n\u003Cdiv class=\u0022eu-cookie-withdraw-banner\u0022\u003E\n  \u003Cdiv class=\u0022popup-content info\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n      \u003Cp\u003EWe use cookies on this site to enhance your user experienceYou have given your consent for us to set cookies.\u003C\/p\u003E\n    \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022eu-cookie-withdraw-button\u0022\u003EWithdraw consent\u003C\/button\u003E\n    \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E\n","withdraw_enabled":false},"extlink":{"extTarget":0,"extClass":"ext","extLabel":"(link is external)","extImgClass":0,"extIconPlacement":"append","extSubdomains":1,"extExclude":"(addthis\\.com)","extInclude":"","extCssExclude":"\u0022.block-menu_block-footer-connect\u0022","extCssExplicit":"","extAlert":0,"extAlertText":"This link will take you to an external web site.","mailtoClass":"mailto","mailtoLabel":"(link sends e-mail)"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip","trackColorbox":1},"colorbox_node":{"width":"600px","height":"600px"},"bootstrap":{"anchorsFix":"0","anchorsSmoothScrolling":"0","formHasError":1,"popoverEnabled":1,"popoverOptions":{"animation":1,"html":0,"placement":"right","selector":"","trigger":"click","triggerAutoclose":1,"title":"","content":"","delay":0,"container":"body"},"tooltipEnabled":1,"tooltipOptions":{"animation":1,"html":0,"placement":"auto left","selector":"","trigger":"hover focus","delay":0,"container":"body"}}});</script>
+</head>
+<body class="menu-in-header html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-32456 node-type-aricle-wide-format domain-erl-barnard-edu">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div class="region region-page-top">
+    <noscript aria-hidden="true"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVZDCLM" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager">Google Tag Manager</iframe></noscript>  </div>
+  
+<header id="header" class="header" role="banner"
+        style="background-image: url(/sites/default/files/erc_final.png);">
+
+  <div class="container">
+          <a class="logo navbar-btn pull-left" href="/" title="">
+        <img src="/sites/default/files/department_logos/erc-logo.svg" alt=""/>
+      </a>
+    
+    <div class="search-button search-button-1">
+      <a href="/search" class="btn"><span class="icon-search"></span> <span class="search-label">Search</span></a>
+    </div>
+  </div>
+
+      <div class="main-menu-wrapper">
+      <div class="container">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button id="menu-toggle" type="button" class="pull-left navbar-toggle collapsed " data-toggle="collapse"
+                    data-target="#microsite-main-menu" aria-expanded="false">
+              <span class="icon-bars">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </span>
+              <span id="menu-label" class="menu-label" href="#">Menu</span>
+            </button>
+            <div class="main-menu-desktop main-menu">
+              <section id="block-menu-block-53" class="block block-menu-block clearfix">
+
+      
+  <div class="menu-block-wrapper menu-block-53 menu-name-menu-erl-main-menu parent-mlid-0 menu-level-1">
+  <ul class="menu nav nav-justified hidden-xs hidden-sm"><li class="first leaf"><a href="/visit-us">Visit Us</a></li>
+<li class="leaf"><a href="/workshops">Workshops</a></li>
+<li class="expanded dropdown"><a href="/about-erc">What We Do <span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/policies">ERC Course Support</a></li>
+<li class="leaf"><a href="/student-work">Student Work</a></li>
+<li class="last leaf"><a href="/what-we-do/faqs">FAQs</a></li>
+</ul></li>
+<li class="leaf"><a href="/about-us/meet-us">Who We Are</a></li>
+<li class="last expanded dropdown"><a href="/student_resources">Resources <span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/support-form">ERC Support Form</a></li>
+<li class="last leaf"><a href="https://erc.barnard.edu/tutorials">Software Tutorials </a></li>
+</ul></li>
+</ul></div>
+
+</section>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu-accordion-wrapper">
+    <div class="search-button search-button-2">
+      <a href="/search" class="btn"><span class="icon-search"></span> <span class="search-label">Search</span></a>
+    </div>
+    <div class="collapse navbar-collapse" id="microsite-main-menu">
+      <div class="panel-group visible-xs visible-sm" id="accordionMenu-1" role="tablist" aria-multiselectable="true">
+        <section id="block-menu-block-53--2" class="block block-menu-block clearfix">
+
+      
+  <div class="menu-block-wrapper menu-block-53 menu-name-menu-erl-main-menu parent-mlid-0 menu-level-1">
+  <ul class="menu nav visible-xs visible-sm"><div class="panel panel-default">
+  <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+      <a href="/visit-us">Visit Us</a>          </h4>
+  </div>
+  </div>
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+      <a href="/workshops">Workshops</a>          </h4>
+  </div>
+  </div>
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+      <a href="/about-erc" role="button">What We Do</a>      <span role="button" data-toggle="collapse" data-parent="#accordionMenu-1" href="#collapse-533061" aria-expanded="false"
+       aria-controls="collapse533061" class="collapse-element caret"></span>    </h4>
+  </div>
+      <div id="collapse-533061" class="panel-collapse collapse" role="tabpanel"
+         aria-labelledby="heading-533061">
+      <div class="panel-body">
+        <ul><li class="first leaf"><a href="/policies">ERC Course Support</a></li>
+<li class="leaf"><a href="/student-work">Student Work</a></li>
+<li class="last leaf"><a href="/what-we-do/faqs">FAQs</a></li>
+</ul>
+      </div>
+    </div>
+  </div>
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+      <a href="/about-us/meet-us">Who We Are</a>          </h4>
+  </div>
+  </div>
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+      <a href="/student_resources" role="button">Resources</a>      <span role="button" data-toggle="collapse" data-parent="#accordionMenu-1" href="#collapse-533211" aria-expanded="false"
+       aria-controls="collapse533211" class="collapse-element caret"></span>    </h4>
+  </div>
+      <div id="collapse-533211" class="panel-collapse collapse" role="tabpanel"
+         aria-labelledby="heading-533211">
+      <div class="panel-body">
+        <ul><li class="first leaf"><a href="/support-form">ERC Support Form</a></li>
+<li class="last leaf"><a href="https://erc.barnard.edu/tutorials">Software Tutorials </a></li>
+</ul>
+      </div>
+    </div>
+  </div>
+</ul></div>
+
+</section>
+      </div>
+    </div>
+  </div>
+
+<div class="main-container-wrapper">
+
+  <div class="main-container container">
+    <div class="row">
+      <main class="col-md-9 col-md-push-3" role="main">
+        
+                        <a id="main-content"></a>
+                          <h1 class="page-header">Gaining Access to Social Explorer</h1>
+                                                           <!-- /#help -->
+                  <div class="region region-content">
+    <section id="block-system-main" class="block block-system clearfix">
+
+      
+  <article id="node-32456" class="node node-aricle-wide-format clearfix" about="/socialexploreraccess" typeof="sioc:Item foaf:Document">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"> <p>Social Explorer is a web-based data visualization tool that allows users to explore current and historical census and demographic data using maps.  Users can create maps and reports to illustrate, understand, and analyze demography and social change.</p>
+<p>Here is how to access Social Explorer.</p>
+<ol><li>Go to SocialExplorer.com.</li>
+<li>In the upper-right corner of the screen, you'll see a green ribbon with the line "Professional Edition provided by Columbia University."  Click this.</li>
+<li>Sign up!  By creating a username and password, you'll be able to save the maps you create and access Social Explorer from non-campus computers for 3 months.  To set up an account for off-campus access, follow <a href="http://www.columbia.edu/cgi-bin/cul/resolve?clio7334603">this link</a>.</li>
+</ol><p>After 3 months, if you still need off-campus access you'll need to log in through the above link (also <a href="http://library.columbia.edu/locations/dssc/data_viz_tools.html">on the library website</a>) to re-establish your affiliation with Columbia/Barnard.</p>
+<p> </p>
+<p> </p>
+ </div></div></div>    </article>
+
+</section>
+  </div>
+ <!-- /#content -->
+      </main>
+
+              <aside class="sidebar-main sidebar-main-bottom col-md-3 col-md-pull-9">
+                      <div class="region region-sidebar-first well">
+    <section id="block-twitter-block-11" class="block block-twitter-block clearfix">
+
+        <h2 class="element-invisible block-title">ERC Tweets</h2>
+    
+  <a href="https://twitter.com/BarnardERC" class="twitter-timeline" data-widget-id="660130487348961280" data-aria-polite="polite">Tweets by BarnardERC</a>
+</section>
+  </div>
+ <!-- /#sidebar-first -->
+        </aside>
+          </div>
+  </div>
+</div>
+
+
+<footer id="footer" class="footer" style="background-image: url(/sites/default/files/microsite-hdr_runner.jpg)">
+  <div class="container">
+    <div class="footer-logo">
+      <a href="https://barnard.edu/">Barnard College</a>
+    </div>
+      <div class="region region-footer">
+    <section id="block-block-481" class="block block-block clearfix">
+
+      
+   <style type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+#blais {text-align:left; padding: 30px 0;}
+#blais h2, #blais h3, #blais h4 { color: #f4e482; margin-top:0px; padding-top:0px;}
+#blais h2 {font-size: 2rem; }
+#blais h3, #blais h4 {font-size: 1.25rem; }
+#blais ul { list-style-type:none; padding-left:0;  }
+#blais ul li { padding-bottom:0.66rem; }
+.blaisid {padding-right:40px; margin-right:39px; border-right: 1px solid white; }
+
+/*--><!]]>*/
+</style><div id="blais">
+	<div class="col-lg-5 blaisid">
+		<h2>Barnard Library and Academic Information Services (BLAIS)</h2>
+
+		<p>at The Milstein Center for Teaching and Learning</p>
+
+		<p><a href="mailto:mctl@barnard.edu">mctl@barnard.edu</a> | 212-854-3953</p>
+	</div>
+
+	<div class="col-lg-2">
+		<h3>Departments</h3>
+
+		<ul><li><a href="https://library.barnard.edu">Library</a></li>
+			<li><a href="https://imats.barnard.edu">IMATS</a></li>
+			<li><a href="https://archives.barnard.edu">Archives</a></li>
+			<li><a href="https://zines.barnard.edu">Zines</a></li>
+		</ul></div>
+
+	<div class="col-lg-4">
+		<h3>Teaching and Learning Centers</h3>
+
+		<ul><li><a href="https://cep.barnard.edu">Center for Engaged Pedagogy</a></li>
+			<li><a href="https://design.barnard.edu">Design Center</a></li>
+			<li><a href="https://digitalhumanities.barnard.edu">Digital Humanities Center</a></li>
+			<li><a href="https://erc.barnard.edu">Empirical Reasoning Center</a></li>
+			<li><a href="https://movement.barnard.edu">Movement Lab</a></li>
+			<li><a href="https://mediacenter.barnard.edu">Sloate Media Center</a></li>
+			<li><a href="https://csc.barnard.edu">Vagelos Computational Science Center</a></li>
+		</ul></div>
+</div>
+
+<p> </p>
+ 
+</section>
+<section id="block-block-2" class="block block-block clearfix">
+
+      
+   <div>Copyright © 2019; <a href="http://barnard.edu" title="Barnard College">Barnard College</a>  | <a href="http://www.columbia.edu" title="Columbia University">Columbia University</a></div>
+ 
+</section>
+  </div>
+  </div>
+</footer> <!-- /#footer -->
+  <script>function euCookieComplianceLoadScripts() {Drupal.attachBehaviors();}</script>
+<script>var eu_cookie_compliance_cookie_name = "";</script>
+<script src="https://erc.barnard.edu/sites/default/files/js/js_MLVgtzZ1ORq9krYqkeOsRay6ou_T-0QZytivuM9tTT8.js"></script>
+<script src="//platform.twitter.com/widgets.js"></script>
+<script src="https://erc.barnard.edu/sites/default/files/js/js_IVrKLEyiS-vAjs8fGdfJrJISYc63w_pxH6xmxKNvYoI.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"14ce981c21","applicationID":"65777938","transactionName":"MwMAZkVQWkYFVhJcDgpJI1FDWFtbS1sJUQQ7FgNVUm5CXAFC","queueTime":0,"applicationTime":393,"atts":"H0QDEA1KSUg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
