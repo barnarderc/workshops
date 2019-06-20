@@ -1,0 +1,1 @@
+Download the data [here.](https://github.com/barnarderc/workshops/blob/master/Spring%202016/Introduction%20to%20Development%20Economics%20(Tolonen)/zombie_dataset_0.xlsx)
