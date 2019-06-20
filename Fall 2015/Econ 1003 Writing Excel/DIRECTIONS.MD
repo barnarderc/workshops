@@ -1,0 +1,1 @@
+Download the data [here](https://github.com/barnarderc/workshops/blob/master/Fall%202015/Econ%201003%20Writing%20Excel/weiman-excel-exercise-data_0.xlsx).
