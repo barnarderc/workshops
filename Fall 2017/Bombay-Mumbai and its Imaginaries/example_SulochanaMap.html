@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Sulochana in Bombay and Mill Strikes</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+<style>
+h2 {
+color: #077E9E;
+    font: 28px/28px helvetica, arial, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: .5px;
+    margin: 0;
+    padding-top: 5px;
+    text-transform: uppercase;
+    text-align: center;
+
+}
+#menu {
+        background: #fff;
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        right: 10px;
+        border-radius: 3px;
+        width: 120px;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    #menu a {
+        font-size: 13px;
+        color: #404040;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+        text-align: center;
+    }
+
+    #menu a:last-child {
+        border: none;
+    }
+
+    #menu a:hover {
+        background-color: #f8f8f8;
+        color: #404040;
+    }
+
+    #menu a.active {
+        background-color: #3887be;
+        color: #ffffff;
+    }
+
+    #menu a.active:hover {
+        background: #3074a4;
+    }
+
+.leaflet-popup-content img {
+  max-width:200px;
+  display: block;
+  margin: auto;
+  border: 1px solid #077E9E;
+}
+</style>
+
+
+<nav id="menu"></nav>
+
+<div id='map'></div>
+
+
+
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiZGFyZXRlYWNoaW5nIiwiYSI6ImNpdTQ4OHAyMjBoNWwyb2xwcTJpNW13bXQifQ.iJXS-wT_PuuszzbfY8ty3A';
+
+
+
+
+var map = L.mapbox.map('map','mapbox.light,dareteaching.91bd8da2');
+
+
+
+
+//these are our annotations
+//soluchana: color: #400040
+//mills color: #004c00
+//strike 1908 color: #ffa500
+//strike 1928 color: #cc0000
+var geoJson = [
+//Sanchit
+{
+  type: 'Feature',
+  geometry: {
+	type: "Point",
+	coordinates: [ 72.812972, 18.960729 ]
+  },
+  properties: {
+	'marker-color': '#400040',
+	'marker-size': 'small',
+	'marker-symbol': 'circle',
+	name: "Grant Road Telephone Exchange",
+	about: "Ruby Myers worked as a telephone operator at the Grand Road Telephone Exchange before she became a film actress for Kohinoor Film Company. She worked here in 1920 when she was offered her first acting role, but she turned it down. Kohinoor persisted and she signed her first movie in 1924.",
+	url: ""
+	}
+  }, {
+	type: 'Feature',
+	geometry: {
+	type: "Point",
+	coordinates: [ 72.817485, 18.958606 ]
+  },
+  properties: {
+	'marker-color': '#400040',
+	'marker-size': 'small',
+	'marker-symbol': 'circle',
+	name: "Imperial Talkies",
+	about: "'Anarkali' (1935), 'Pride of India' (1936) and 'New Searchlight' (1938) were among Sulochana's films that premiered at the Imperial Talkies. 'Pride of India' was Imperial Film Company's first colour film. Times of India reported that 'every Indian picture fan in Bombay just now is raving over Sulochana' (October 16, 1936) in 'Pride of India'. Times of India also reported that 'Sulochana 'never looked more glamourous' and that her acting is 'excellent' in 'New Searchlight'. (April 15, 1938) ",
+	url: "http://images.mid-day.com/images/2015/sep/Earlier-entrance-of-Imperia.jpg"
+	}
+  }, {
+	type: 'Feature',
+	geometry: {
+	type: "Point",
+	coordinates: [ 72.832605, 18.928120 ]
+  },
+  properties: {
+	'marker-color': '#400040',
+	'marker-size': 'small',
+	'marker-symbol': 'circle',
+	name: "Keneseth Eliyahoo Synagogue",
+	about: "Keneseth Eliyahoo Synagogue was built in 1884 by the Sassoon family, who were Baghdadi Jews like Sulochana (Ruby Myers). According to the World Monuments Fund, the synagogue 'continues to be the center of Jewish cultural and religious life in Mumbai.",
+	url: "http://s3.firstpost.in/wp-content/uploads/2016/07/List-Photo-4.jpg"
+	}
+  }, {
+	type: 'Feature',
+	geometry: {
+	type: "Point",
+	coordinates: [ 72.807414, 18.956554 ]
+  },
+  properties: {
+	'marker-color': '#400040',
+	'marker-size': 'small',
+	'marker-symbol': 'circle',
+	name: "Ruby Pictures",
+	about: "Sulochana started her own production house in the 1930s, which was located here. Productions such as 'Prem ki Jyot' (1939) were supported by other members of the film fraternity, such as her former co-star D. Billimoria.",
+	url: "https://urbanizationofbombay.files.wordpress.com/2016/10/ruby_is_real.png"
+	}
+  }, {
+	type: 'Feature',
+	geometry: {
+	type: "Point",
+	coordinates: [ 72.830521, 18.931109 ]
+  },
+  properties: {
+	'marker-color': '#400040',
+	'marker-size': 'small',
+	'marker-symbol': 'circle',
+	name: "Bombay High Court",
+	about: "In 1930, the Imperial Film Company sued Ruby Myers for breach of contract. The case revolved around the Company's extension of their contract using an option clause in the original contract. Ms Myers alleged that the option clause was used to extend the contract without her consent and so did not stand as valid. Allegations of her demanding a higher salary (apparently linked to her being a Jew) were made. There was also discussion of her requiring a loan of Rs 20,000 and being denied by the Company, who told her she might find employment elsewhere.",
+	url: "http://www.khabarindia.in/wp-content/uploads/2015/12/mumbai-high-court.jpg"
+	}
+  }, {
+	type: 'Feature',
+	geometry: {
+	type: "Point",
+	coordinates: [ 72.836788, 18.934662 ]
+  },
+  properties: {
+	'marker-color': '#400040',
+	'marker-size': 'small',
+	'marker-symbol': 'circle',
+	name: "FilmIndia Publications Ltd.",
+	about: "FilmIndia was a popular film magazine that published film news. Its archives are a fantastic source of photographs of Sulochana, including some in colour and some that have been painted. It was edited by Baburao Patel.",
+	url: "https://ia800707.us.archive.org/BookReader/BookReaderImages.php?zip=/15/items/filmindia193804unse/filmindia193804unse_jp2.zip&file=filmindia193804unse_jp2/filmindia193804unse_0263.jp2&scale=4&rotate=0"
+	}
+  }, {
+	type: 'Feature',
+	geometry: {
+	type: "Point",
+	coordinates: [ 72.844237, 19.017174 ]
+  },
+  properties: {
+	'marker-color': '#400040',
+	'marker-size': 'small',
+	'marker-symbol': 'circle',
+	name: "Kohinoor Film Company",
+	about: "Kohinoor Film Company was India's biggest silent film production house. Started in 1919 by D.N. Sampat and S.N. Patankar, it produced Sulochana's debut film, 'Veer Bala' (1925). Sulochana acted here for Kohinoor productions for one year, before making films for Imperial Film Company. Kohinoor witnessed a devastating fire in 1923 and was rebranded as the employee-run cooperative venture Kohinoor United Artists in 1928, before being closed for good in 1932. The company employed a number of successful film personalities, including Homi Master and Zubeida. It also trained all the professionals who went on to start other production houses such as Krishna, Sharda and even Imperial.",
+	url: ""
+	}
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Rekha
+
+
+
+
+//2
+ {
+  type: 'Feature',
+  geometry: {
+	type: "Point",
+	coordinates: [72.81092739999997, 18.9659577]
+  },
+  properties: {
+	'marker-color': '#400040',
+	'marker-size': 'small',
+	'marker-symbol': 'circle',
+	name: "Imperial Film Studio",
+	about: "This is a film studio where many of Sulochana’s later films were shot.",
+	url: "https://urbanizationofbombay.files.wordpress.com/2016/10/14051071487_dd5667aa35_o.png?w=702"
+	} },
+
+
+
+
+//4
+{
+  type: 'Feature',
+  geometry: {
+	type: "Point",
+	coordinates: [ 72.821778, 18.912856]
+  },
+  properties: {
+	'marker-color': '#400040',
+	'marker-size': 'small',
+	'marker-symbol': 'circle',
+	name: "14 Wodehouse Road",
+	about: " Where Sulochana’s fiance, Dr. Wiengarten lived. It was also purportedly only for those of European descent as a 1936 ad claims.",
+	url: "https://urbanizationofbombay.files.wordpress.com/2016/10/14wodehouseroad.png"
+	} },
+
+
+
+
+//6
+{
+  type: 'Feature',
+  geometry: {
+	type: "Point",
+	coordinates: [72.816663, 18.954847]
+  },
+  properties: {
+	'marker-color': '#400040',
+	'marker-size': 'small',
+	'marker-symbol': 'circle',
+	name: "Roxy Talkies",
+	about: " Her movie “Savitri” debuted here and it was made by Imperial Film Company",
+	url: "https://ia800500.us.archive.org/BookReader/BookReaderImages.php?zip=/29/items/filmindia19373803unse/filmindia19373803unse_jp2.zip&file=filmindia19373803unse_jp2/filmindia19373803unse_0070.jp2&scale=4&rotate=0"
+	} },
+
+
+
+
+//8
+{
+  type: 'Feature',
+  geometry: {
+	type: "Point",
+	coordinates: [72.832077, 18.966971]
+  },
+  properties: {
+	'marker-color': '#400040',
+	'marker-size': 'small',
+	'marker-symbol': 'circle',
+	name: "Magen David Synagogue ",
+	about: "The Synagogue which still stands today was built by David Sassoon, a Baghdadi Jew, like Sulochana. She like many other female stars in the 1920s were Jews such as Pramila and Nadira. Jewish actresses were popular because they were willing to perform scenes for te camera that many other Indians considered improper for women. Their light Caucasian skin color also made it easier on the lighting for the cameras.",
+	url: "http://s3.firstpost.in/wp-content/uploads/2016/07/List-Photo-1.jpg"
+	} },
+
+
+
+
+//10
+{
+  type: 'Feature',
+  geometry: {
+	type: "Point",
+	coordinates: [72.833093, 18.924295]
+  },
+  properties: {
+	'marker-color': '#400040',
+	'marker-size': 'small',
+	'marker-symbol': 'circle',
+	name: "Mumbai Film Censor Board",
+	about: "In 1927, the Indian Cinematograph Committee was established and along with it came film censor boards in 4 major cities in India, including Bombay. The first film censor committees were under the jurisdiction of the head Police Chief of the city. Sulochana was one of the most famous actresses interviewed by the committee.",
+	url: "https://urbanizationofbombay.files.wordpress.com/2016/10/screen-shot-2016-10-24-at-3-21-44-pm.png"
+	} },
+
+
+
+
+//12
+{
+  type: 'Feature',
+  geometry: {
+	type: "Point",
+	coordinates: [72.81829, 18.964418 ]
+  },
+  properties: {
+	'marker-color': '#400040',
+	'marker-size': 'small',
+	'marker-symbol': 'circle',
+	name: "Minerva Talkies ",
+	about: "Where “Prem ki Jyot”, Sulochana’s first film made by her studio Ruby Pictures, premiered on February 17, 1939. ",
+	url: "https://ia802303.us.archive.org/BookReader/BookReaderImages.php?zip=/0/items/filmindia193905unse/filmindia193905unse_jp2.zip&file=filmindia193905unse_jp2/filmindia193905unse_0254.jp2&scale=4&rotate=0"
+	}},
+
+
+
+
+
+
+
+
+
+
+
+
+//Vani
+{
+  type: 'Feature',
+  geometry: {
+	type: "Point",
+	coordinates: [ 72.836515, 18.996206 ]
+  },
+  properties: {
+	'marker-color': '#ffa500',
+	'marker-size': 'small',
+	'marker-symbol': 'circle',
+	name: "***Jacob Sassoon Mill***",
+	about: " On January 2, 1928, women working as winders at the Jacob Sassoon Mill walked out after a proposed pay reduction of between 1 and 4 paise per 10 pounds of yarn wound.That afternoon, men working in spinning followed their lead and walked out as well. This strike set off a series of actions that would lead to the Bombay textile workers' general strike of 1928.",
+	url: "https://urbanizationofbombay.files.wordpress.com/2016/10/jacobsassoon.png"
+	}
+  }, {
+	type: 'Feature',
+	geometry: { "type": "Point", "coordinates": [ 72.847431, 19.008206 ]},
+	properties: {
+  	'marker-color': '#cc0000',
+  	'marker-size': 'small',
+  	'marker-symbol': 'circle',
+  	name: "***Spring Mill***",
+  	about: "Bombay Dyeing and Manufacturing Company started the Spring Mill in 1908. On December 31, 1927, managers of Spring Mill posted a notice introducing two sided spinning with only a 50% wage increase. Nearly 700 workers walked out in protest of the new system on Monday, January 2, 1928. Learning of the strike at the Jacob Sassoon Mill, more Spring Mill workers joined the strike the following day.After negotiations, they ended the strike on January 16, while the Sassoon group strike persisted.",
+  	url: ""
+	}
+}, {
+	type: 'Feature',
+	geometry: { "type": "Point", "coordinates": [ 72.827966, 18.988654 ]},
+	properties: {
+  	'marker-color': '#cc0000',
+  	'marker-size': 'small',
+  	'marker-symbol': 'circle',
+  	name: "***Apollo Mill***",
+  	about: "Apollo Mills, Limited, was started in 1874 as the Anglo-Indian, Limited, and converted into the Apollo (Private) in 1893 and formed into Apollo Mills, Ld., in 1920.On January 2, 1928, workers from Jacob Sassoon and Spring Mills walked to the Apollo Mill and brought workers from Apollo out on strike.",
+  	url: ""
+	}
+ }, {
+	type: 'Feature',
+	geometry: { "type": "Point", "coordinates": [ 72.836391, 18.984166 ]},
+	properties: {
+  	'marker-color': '#cc0000',
+  	'marker-size': 'small',
+  	'marker-symbol': 'circle',
+  	name: "***Manchester Mill***",
+  	about: "E.D. Sassoon and Company purchased Manchester Mill in 1925 and began to introduce rationalized weaving schemes into the mill in August 1927. This caused a month-long strike at both Apollo and Manchester mills, a key predecessor to the Sassoon group strikes of 1928. On January 2, 1928, workers from Jacob Sassoon and Spring Mills walked to the Manchester Mill and brought workers there out on strike.",
+  	url: ""
+	}
+}, {
+	type: 'Feature',
+	geometry: { "type": "Point", "coordinates": [ 72.839476, 18.987464 ]},
+	properties: {
+  	'marker-color': '#ffa500',
+  	'marker-size': 'small',
+  	'marker-symbol': 'circle',
+  	name: "***Rachel Sassoon Mill***",
+  	about: "As one of the mills in the Sassoon group, the Rachel Sassoon Mill was closed on Tuesday January 3, 1928, by E.D. Sassoon company, following the emergence of strikes at Jacob Sassoon Mill, Spring Mill, and Apollo Mill.",
+  	url: ""
+	}
+}, {
+	type: 'Feature',
+	geometry: { "type": "Point", "coordinates": [ 72.838782, 19.005962 ]},
+	properties: {
+  	'marker-color': '#cc0000',
+  	'marker-size': 'small',
+  	'marker-symbol': 'circle',
+  	name: "***Damodar Thackersey Hall***",
+  	about: "A Times of India article from January 6, 1928, reports a meeting of Sassoon group textile workers on strike at Thackersey Hall on January 5, three days after the first strike by women working at Jacob Sassoon Mill, to discuss the conditions of their collective demands.",
+  	url: "https://urbanizationofbombay.files.wordpress.com/2016/10/thackerseyhall.png"
+	}
+}, {
+	type: 'Feature',
+	geometry: { "type": "Point", "coordinates": [ 72.873055, 19.059401 ]},
+	properties: {
+  	'marker-color': '#004c00',
+  	'marker-size': 'small',
+  	'marker-symbol': 'circle',
+  	name: "***Swadeshi Mills***",
+  	about: "Swadeshi Mills were started in 1860 as the Coorla Mills. After going into liquidation five times, they closed in 1886 and reopened in 1887 as Swadeshi Mills, then purchasing Bombay United Mills from Tata in 1925. Owned by NB Saklatwala, a Parsi industrialist. Situated in Kurla, far north of Girangaon, Swadeshi Mills remained somewhat geographically removed from most of Bombay's textile mills and many associated labor organizing spaces.",
+  	url: ""
+	}},
+
+
+
+
+//Fatima
+//Fatima
+{
+	type: 'Feature',
+	geometry: { "type": "Point", "coordinates": [ 72.8121613, 18.9702373]},
+	properties: {
+  	'marker-color': '#004c00',
+  	'marker-size': 'small',
+  	'marker-symbol': 'circle',
+  	name: "Bombay Spinning and Weaving Company ",
+  	about: "According to one source, the Bombay Spinning and Weaving Company is the second Indian cotton spinning mill. It was established by Cowasjee Nanabhoy Davar (1815-73), who was a Parsee financier of Bombay. He was described as “the Tata of the 1850s”. The mill began production on February 7 1856, with 17,000 spindles. Other sources mention it being the first steam cotton mill being built in Bombay. The mill ran with the supervision of British engineers and skilled cotton operatives. The success of the mill convinced Cowasjee to build a duplicate mill with more spindles alongside the Tardeo building. This was also built a few years later. Tardeo was at the outskirts at the time. The mill was built with a 5 million rupee contribution from 50 of Bombay’s leading businessmen.",
+  	url: ""
+	}
+},
+
+
+//strike 1908 color: #ffff00    if both strikes: #ffa500
+{
+	type: 'Feature',
+	geometry: { "type": "Point", "coordinates": [ 72.8377287, 18.9883584 ]},
+	properties: {
+  	'marker-color': '#ffff00',
+  	'marker-size': 'small',
+  	'marker-symbol': 'circle',
+  	name: "Western India Mill ",
+  	about: "The 1908 strikes were due to Bal Gangadhar Tilak being arrested for treason. Tilak was heavily involved in organizing in the Bombay mills and had been doing so since the 1890's and had established the Bombay Millhands Defense Association. Strikes and protests started as soon as he was arrested, but a major day of demonstration was after Tilak was found guilty and sentenced. On July 24, 70 mills stopped work. Workers from the Western India Mill actually stoned other workers in the mill across from them, causing those workers to also join them. The crowd then continued along Chinchpokli Road.",
+  	url: ""
+	}
+},
+
+
+//18.987464!4d72.839476 bombay cotton
+
+
+{
+	type: 'Feature',
+	geometry: { "type": "Point", "coordinates": [ 72.8378394, 18.9881878 ]},
+	properties: {
+  	'marker-color': '#ffff00',
+  	'marker-size': 'small',
+  	'marker-symbol': 'circle',
+  	name: "Bombay Cotton Mill ",
+  	about: "Workers from Bombay Cotton Mill had actually commenced working when they were interrupted and stoned by workers from the Western India Mill. Many thus left their positions and joined the strike. Some mills during the strike had posters with text, as the image describes.",
+  	url: "https://urbanizationofbombay.files.wordpress.com/2016/10/bombaystrikeposter.jpg"
+	}
+},
+//ed sassoon 18.9871251,72.838304
+
+
+{
+	type: 'Feature',
+	geometry: { "type": "Point", "coordinates": [ 72.838304, 18.9871251 ]},
+	properties: {
+  	'marker-color': '#ffff00',
+  	'marker-size': 'small',
+  	'marker-symbol': 'circle',
+  	name: "E. D. Sassoon Mill",
+  	about: "As the procession moved along, workers from the E. D. Sassoon Mill and Rachel Sassoon Mill were also stoned, causing all the employees to run out. At this point, Superindentendent Mayers and Sub-Inspector Finan arrived and moved the crowd until they reached Albert Road, at which point the crowd divided into two parties. One group stoned the police officers, leading to the police officers firing on them, killing three and wounding others.",
+  	url: ""
+	}
+},
+];
+
+
+
+
+var myLayer = L.mapbox.featureLayer().addTo(map);
+
+
+
+
+// Add the iframe in a custom popup using the custom feature properties
+myLayer.on('layeradd', function(e) {
+	var marker = e.layer,
+    	feature = marker.feature;
+
+
+
+
+	// Create custom popup content
+	var popupContent =   '<div id="up" >' + '<img src="' +
+    	feature.properties.url + '"/>' 
+    	+ '<h2>' + feature.properties.name + '</h2>' + feature.properties.about + '</a>' ;
+
+
+
+
+	// http://leafletjs.com/reference.html#popup
+	marker.bindPopup(popupContent,{
+    	closeButton: true,
+    	minWidth: 320
+	});
+});
+
+
+
+
+// Add features to the map
+myLayer.setGeoJSON(geoJson);
+
+
+
+
+map.setView([18.97, 72.81], 13);
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
