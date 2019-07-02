@@ -9,5 +9,5 @@ Access the third guide [here.](https://github.com/CenterForSpatialResearch/Mappi
 
 Workshop #3 (WebMaps):
 Access the guide and materials [here.](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/06_MakingData03.md) 
-See a different example using Mapbox [here.](file:///C:/Users/Student/Documents/GitHub/workshops/Fall%202017/Bombay-Mumbai%20and%20its%20Imaginaries/example_SulochanaMap.html)
+See a different example using Mapbox [here.](https://github.com/barnarderc/workshops/blob/master/Fall%202017/Bombay-Mumbai%20and%20its%20Imaginaries/example_SulochanaMap.html)
 
