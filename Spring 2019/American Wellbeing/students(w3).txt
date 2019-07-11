@@ -1,0 +1,87 @@
+1. <h1>
+American Well Being
+</h1>
+
+2. <p>
+Workshop on HTML
+</p>
+
+3. <a href="http://google.com">www.google.com</a>
+
+4. <img height="42" width="42" src="https://upload.wikimedia.org/
+wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/800px
+-HTML5_logo_and_wordmark.svg.png"> <img>
+
+5. <p></p>
+
+6. <div>
+<h2> We can also use CSS</h2>
+</div>
+
+7. style="background-color:red"
+
+8. <p style="background-color:blue">There can be multiple backgrounds</p>
+
+9. p {
+  background-color: blue;
+}
+
+10. div {
+  height: 50px;
+  background-color:red;
+}
+
+11.
+<div class="tabs">
+<p>
+Tab1
+</p>
+</div>
+
+12. .tab {
+  background-color: yellow;
+  width: 30px;
+  padding: 10px;
+  display: inline-block;
+}
+
+13. .tab p {
+  color: white;
+  background-color: yellow;
+}
+
+14. h2 ~ p{
+  background-color: green;
+}
+
+15.
+.one {
+  background-color: red;
+}
+
+16. .tabs {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+17. .second {
+  font-weight: bold;
+}
+
+18. margin: 10px;
+
+19. id="bordered"
+
+20. #bordered {
+  border: thin solid red;
+}
+
+21.
+install.packages("rvest")
+library(rvest)
+url <- "https://www.infrastructurereportcard.org/state-item/texas/"
+webpage <- read_html(url)
+grade_html <- html_nodes(webpage, '.e-grade')
+grade<- c(html_text(grade_html))
+grade[1]
