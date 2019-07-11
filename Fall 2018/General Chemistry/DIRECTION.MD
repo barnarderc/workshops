@@ -1,0 +1,1 @@
+Please download this [spreadsheet](https://github.com/barnarderc/workshops/blob/master/Fall%202018/General%20Chemistry/teachingratingsexcel_0.xls) and the [step-by-step guide.](https://github.com/barnarderc/workshops/blob/master/Fall%202018/General%20Chemistry/excelworkshopguide2017.pdf)
