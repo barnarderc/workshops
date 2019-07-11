@@ -1,0 +1,2 @@
+Workshop:
+Please use this link to download the STATA materials and this [link](https://github.com/barnarderc/workshops/blob/master/Spring%202018/Senior%20Seminar_%20Women%20in%20Development/SeniorSeminar_WomeninDevelopment.zip) to download the Excel files.
