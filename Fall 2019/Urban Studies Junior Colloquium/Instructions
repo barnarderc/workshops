@@ -1,6 +1,7 @@
 Here are sources for Census data (to analyze neighborhood changes over time):
 
-* [American Fact Finder](https://factfinder.census.gov/), the official source for US Census data, including ACS data.
-* You can also use [Social Explorer](https://www.socialexplorer.com/explore-maps) to generate maps using US Census data, including ACS data 
+* American Fact Finder: https://factfinder.census.gov/, the official source for US Census data, including ACS data.
+* You can also use Social Explorer (https://www.socialexplorer.com/explore-maps) to generate maps using US Census data, including ACS data 
 * The NYC Census FactFinder is a valuable resource for determining neighborhood boundaries
-* Here is an [example](https://github.com/barnarderc/workshops/blob/master/Fall%202019/Urban%20Studies%20Junior%20Colloquium/Example_Rocco_JR_coll.xlsx) of how to set up a table in Excel in order to visualize trends related to neighborhood change over time (using data downloaded from Social Explorer).
+* Here is an example (https://github.com/barnarderc/workshops/blob/master/Fall%202019/Urban%20Studies%20Junior%20Colloquium/Example_Rocco_JR_coll.xlsx) of how to set up a table in Excel in order to visualize trends related to neighborhood change over time (using data downloaded from Social Explorer).
+
