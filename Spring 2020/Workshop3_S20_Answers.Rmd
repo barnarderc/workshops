@@ -1,0 +1,119 @@
+---
+title: "Workshop3_S20"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Insert R Chunk here and read in the csv into a variable called bechdel_data:
+
+```{r}
+bechdel_data <- read.csv("bechdel_test_movies_w3.csv")
+names(bechdel_data)
+```
+
+
+
+```{r}
+#Calculate the mean for budget
+mean(bechdel_data$budget)
+mean(bechdel_data$budget, na.rm=T)
+```
+
+```{r}
+table(bechdel_data$bechdeltest)
+table(bechdel_data$bechdeltest, useNA="always")
+
+##Create a table for budgetcategory
+table(bechdel_data$budgetcategory, useNA = "always")
+```
+
+
+
+```{r}
+crosstab <- table(bechdel_data$budgetcategory, bechdel_data$bechdeltest)
+crosstab
+
+#Create a vector to give to the dnn argument. 
+crosstab <- table(bechdel_data$budgetcategory, bechdel_data$bechdeltest, dnn=c("Budget Category", "Bechdel Test Result"))
+crosstab
+```
+
+
+```{r}
+prop.table(crosstab,1)
+
+#Now get the fraction breakdown by the second dimension, bechdeltest
+prop.table(crosstab, 2)
+
+```
+
+
+```{r}
+install.packages("descr")
+descr::freq(bechdel_data$bechdeltest)
+
+##Get the frequency for budgetcategory
+descr::freq(bechdel_data$budgetcategory)
+```
+
+```{r}
+hist(bechdel_data$budget, breaks=30)
+options(scipen=999)
+hist(bechdel_data$budget, breaks=30, main="Histogram of Budget", xlab="Budget")
+
+##Create a histogram for domestic gross with 25 breaks with an appropriate title and axis labels
+hist(bechdel_data$domgross, breaks=25, main="Histogram of Domestic Gross", xlab="Domestic Gross")
+
+```
+
+## Ended Workshop 3 HERE
+
+
+```{r}
+##Access the budget of movies that passed the bechdel test
+
+bechdel_data$bechdeltest=="PASS"
+bechdel_data$budget[bechdel_data$bechdeltest=="PASS"]
+
+##Access year for movies with a domestic gross greater than 150 million
+
+
+##Access year for movies with a domestic gross greater than 1 billion
+
+```
+
+
+```{r}
+bechdel_data$bechdeltest_recoded <- NULL
+bechdel_data$bechdeltest_recoded <- 0
+
+##Access the values for bechdeltest_recoded for movies that passed the test
+
+```
+
+
+```{r}
+bechdel_data <- within(data=bechdel_data, {
+  
+  ## create and code a new variable for budget categories
+  
+})
+```
+
+Order the variable
+
+```{r}
+#Create a table of budget category to see the distribution
+
+
+bechdel_data$budgetcategory_new<- factor(bechdel_data$budgetcategory_new, 
+                                     levels = c("low", "medium", "high"), 
+                                     ordered=TRUE)
+
+
+
+```
+
