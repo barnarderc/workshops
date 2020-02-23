@@ -1,0 +1,137 @@
+---
+title: "Workshop4_S20"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Read in csv, accounting for NA strings 
+```{r}
+bechdel_data <- read.csv("bechdel_test_movies_w3.csv", na.strings =c("#N/A") )
+bechdel_data_copy <- bechdel_data
+
+names(bechdel_data)
+head(bechdel_data)
+
+table(bechdel_data$clean_test)
+```
+
+
+```{r}
+##Access the budget of movies that passed the bechdel test
+
+bechdel_data$bechdeltest=="PASS"
+
+
+bechdel_data$budget[1:15]
+bechdel_data$budget[bechdel_data$bechdeltest=="PASS"]
+bechdel_data$budget[bechdel_data$Year != 1985]
+
+##Access year for movies with a domestic gross greater than 150 million
+bechdel_data$Year[bechdel_data$domgross > 150000000]
+
+##Access year for movies with a domestic gross greater than 1 billion
+
+bechdel_data[bechdel_data$bechdeltest=="PASS", ]
+```
+
+
+```{r}
+bechdel_data$bechdeltest_recoded <- NULL
+bechdel_data$bechdeltest_recoded <- 0
+head(bechdel_data)
+
+##Access the values for bechdeltest_recoded for movies that passed the test
+bechdel_data$bechdeltest_recoded[bechdel_data$bechdeltest=="PASS"] <- 1
+
+head(bechdel_data)
+```
+
+
+```{r}
+table(bechdel_data$clean_test)
+bechdel_data <- within(data=bechdel_data, {
+  bechdeltest_recoded2 <- NULL
+  bechdeltest_recoded2[clean_test=="ok"] <- "PASS"
+  bechdeltest_recoded2[clean_test!="ok"] <- "FAIL"
+})
+
+head(bechdel_data)
+
+
+bechdel_data <- within(data=bechdel_data, {
+  
+  ## create and code a new variable for budget categories
+  budgetcategory <- NULL
+  budgetcategory[budget <= 16000000] <- "low"
+  budgetcategory[budget > 78000000] <- "high"
+  budgetcategory[budget>16000000 & budget<= 78000000] <- "medium"
+  
+})
+
+head(bechdel_data)
+tail(bechdel_data)
+```
+
+## Order the variable
+
+```{r}
+#Create a table of budget category to see the distribution
+table(bechdel_data$budgetcategory, useNA = "always")
+
+bechdel_data$budgetcategory<- factor(bechdel_data$budgetcategory, 
+                                     levels = c("low", "medium", "high"), 
+                                     ordered=TRUE)
+table(bechdel_data$budgetcategory)
+
+table(bechdel_data$clean_test)
+
+```
+
+##Another way to create/recode variable
+
+```{r}
+bechdel_data$budgetcategory2<-car::recode(bechdel_data$budget,
+                                     "lo:16000000='low';
+                                     78000001:hi='high';
+                                     else='medium'")
+
+table(bechdel_data$budgetcategory2)
+```
+
+##This is where we stopped in the workshop
+
+##Recode clean_test
+```{r}
+install.packages("car")
+bechdel_data$bechdeltest <- car::recode(bechdel_data$clean_test, "'ok'='PASS';else='FAIL'")
+table(bechdel_data$bechdeltest)
+```
+##Recode clean_test another way
+```{r}
+bechdel_data$testresult <- car::recode(bechdel_data$clean_test, "")
+
+```
+
+
+##Cross tab
+```{r, eval=FALSE}
+
+
+```
+
+##Summary Stats by Group
+```{r}
+## mean
+mean(bechdel_data$budget, na.rm=TRUE)
+mean(bechdel_data$budget[""]) ## mean budget for movies that failed the test
+```
+
+##Summary statistics by groups another way
+```{r}
+by(bechdel_data$intgross, bechdel_data$bechdeltest, mean, na.rm=TRUE)
+
+```
+
