@@ -1,0 +1,131 @@
+---
+title: "Workshop5_S20"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
+```
+
+```{r}
+install.packages("dplyr")
+library(dplyr)
+```
+
+##Read in CSV
+```{r}
+bechdel_data_original <- read.csv("bechdel_test_movies_w5.csv", na.strings =c("#N/A") )
+bechdel_data <- bechdel_data_original
+```
+
+
+##Cross tab budget category and bechdel test after ordering budget category 
+```{r}
+##tabulation
+x <- table(bechdel_data$budgetcategory, bechdel_data$bechdeltest)
+x
+
+##ordering
+bechdel_data$budgetcategory<- factor(bechdel_data$budgetcategory, 
+                                     levels = c("low", "medium", "high"), 
+                                     ordered=TRUE)
+##tabulate again
+x <- table(bechdel_data$budgetcategory, bechdel_data$bechdeltest)
+x
+```
+
+##Summary Stats by Group
+```{r}
+## mean
+mean(bechdel_data$budget, na.rm=TRUE)
+
+mean(bechdel_data$budget[ bechdel_data$bechdeltest == "FAIL"]) ## replace to get mean budget for movies that failed the test
+mean(bechdel_data$budget[ bechdel_data$bechdeltest=="PASS"]) ## replace to get mean budget for movies that passed the test
+
+mean(bechdel_data$budget[bechdel_data$Year==2012]) ## replace to get mean budget for movies that were released 2012
+
+head(bechdel_data)
+```
+
+##Summary statistics by groups another way
+```{r}
+by(bechdel_data$intgross, bechdel_data$bechdeltest, mean, na.rm=TRUE)
+
+```
+
+
+##Introducing Dplyr
+```{r}
+
+##Some of the things we can do with dplyr
+arrange(bechdel_data, desc(budget))
+
+# Using pipes
+bechdel_data %>% arrange(desc(budget))
+
+bechdel_data %>% filter(budgetcategory=="low")
+
+arranged_data <- arrange(bechdel_data, desc(budget))
+highest_pass_movies <- filter(arranged_data, bechdeltest=="PASS")
+
+##Combining steps
+highest_pass_movies <- bechdel_data %>% arrange(desc(budget)) %>% filter(bechdeltest=="PASS")
+highest_pass_movies
+
+highest_pass_movies %>% filter(Year>2000)
+
+bechdel_data %>% select(movietitle, ends_with("gross"))
+```
+
+## Dplyr Groupings
+```{r}
+summary1 <- group_by(bechdel_data, budgetcategory, bechdeltest)
+summary1
+class(summary1)
+class(bechdel_data)
+
+summary1 <- summarize(summary1, count = n() )
+
+#combining the steps
+
+budgetcat_bytest <- bechdel_data %>% 
+  group_by(budgetcategory, bechdeltest) %>%
+  summarize(avgintgross=mean(intgross), count=n())
+budgetcat_bytest
+```
+
+## Now let's do counts for year by budget category
+
+```{r}
+year_bybudgetcat <- bechdel_data %>%
+  group_by( "") %>%
+  summarize( "" )
+
+year_bybudgetcat 
+```
+
+##average profit by budget category and bechdel test
+
+```{r}
+budgetcat_bytest_2 <- bechdel_data %>% 
+  group_by( "" ) %>%
+  summarize( "" )
+budgetcat_bytest_2
+
+```
+
+## Combine multiple stats
+```{r}
+budgetcat_bytest <- bechdel_data %>% 
+  group_by( "" ) %>%
+  summarize( "" )
+budgetcat_bytest
+```
+
+
+```{r}
+write.csv(budgetcat_bytest, "BudgetCat_by_TestResults.csv", row.names=F)
+```
+
