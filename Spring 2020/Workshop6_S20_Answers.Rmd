@@ -1,0 +1,117 @@
+---
+title: "Workshop6_S20"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
+```
+
+```{r}
+install.packages("dplyr")
+library(dplyr)
+```
+
+```{r}
+bechdel_data_original <- read.csv("bechdel_test_movies_w5.csv", na.strings =c("#N/A") )
+bechdel_data <- bechdel_data_original
+
+bechdel_data$budgetcategory<- factor(bechdel_data$budgetcategory, 
+                                     levels = c("low", "medium", "high"), 
+                                     ordered=TRUE)
+```
+
+## Dplyr Groupings
+```{r}
+budgetcat_bytest <-  bechdel_data%>% 
+  group_by(budgetcategory, bechdeltest) %>%
+  summarize(count=n())
+budgetcat_bytest
+
+# if we break it down
+grouped_df <- group_by(bechdel_data, budgetcategory, bechdeltest)
+class(grouped_df)
+class(bechdel_data)
+
+budgetcat_bytest <- summarize(grouped_df, count = n() )
+budgetcat_bytest
+```
+
+## Save to csv
+
+```{r}
+write.csv(budgetcat_bytest, "BudgetCat_by_TestResults.csv", row.names=F)
+```
+
+
+## Now let's do counts for year
+
+```{r}
+year_counts<- bechdel_data %>%
+  group_by(Year) %>%
+  summarize(count=n())
+
+year_counts
+```
+
+## Average Int Gross by Year 
+
+```{r}
+year_avg <- bechdel_data %>%
+  filter( Year>=1973 ) %>%
+  group_by(Year) %>%
+  summarize( avg_int_gross_mil = mean(intgross, na.rm=TRUE)/1000000 )
+
+year_avg
+```
+
+## Counts for year by budget category
+```{r}
+year_bybudgetcat <- bechdel_data %>%
+  group_by(budgetcategory, Year) %>%
+  summarize( count=n())
+
+year_bybudgetcat 
+```
+
+##average profit by budget category and bechdel test
+
+```{r}
+budgetcat_bytest_2 <- bechdel_data %>% 
+  group_by(budgetcategory, bechdeltest) %>%
+  summarize( avg_profit_mil = mean(intgross-budget, na.rm=T)/1000000 )
+budgetcat_bytest_2
+
+
+```
+
+## Combine multiple stats
+```{r}
+budgetcat_bytest <- bechdel_data %>% 
+  group_by(budgetcategory, bechdeltest ) %>%
+  summarize( count=n(), 
+             avg_profit_mil = mean(intgross-budget, na.rm=T)/1000000,
+             avg_budget = mean(budget, na.rm=T)/1000000)
+            
+budgetcat_bytest
+```
+
+## Multiple stats continued for year, and for year by bechdel test
+
+```{r}
+year_stats <- bechdel_data %>% 
+  group_by(Year) %>%
+  summarize(count=n(), 
+            avg_budget = mean(budget, na.rm=T)/1000000,
+            median_budget = median(budget, na.rm = T)/1000000 )
+
+year_stats
+
+
+bechdel_data$profit <- bechdel_data$intgross - bechdel_data$budget 
+
+bechdel_data <- bechdel_data %>% mutate(profit = intgross - budget)
+```
+
