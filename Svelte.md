@@ -1,3 +1,5 @@
+[Code Sandbox](https://codesandbox.io/dashboard)
+
 # SVGs
 ## 1. Create SVG
 ```html
@@ -55,6 +57,8 @@ font-size="10px"
 ```
 
 # Making Our Data Viz in Svelte
+
+[Sandbox Example] (https://codesandbox.io/s/workshop-data-viz-starter-ct37tm?file=/App.svelte)
 
 ## 1. Accessing Data
 ```js
@@ -131,7 +135,7 @@ let margin = {
 ## 10. Import Axis Components
 ```js
 import AxisX from "./AxisX.svelte";
-import AxisY from "./AxisY.svelte";
+import AxisY from "./AxisYOriginal.svelte";
 ```
 
 ## 11. Update Line
@@ -366,11 +370,3 @@ tabindex="0"
 	}
 ```
 
-```
-```
-
-```
-```
-
-```
-```
