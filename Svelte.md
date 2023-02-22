@@ -59,10 +59,10 @@ font-size="10px"
 # Making Our Data Viz in Svelte
 
 ## Open the sandbox link below and fork it to copy and make your own.  
-[Sandbox Example] (https://codesandbox.io/s/workshop-data-viz-starter-ct37tm?file=/App.svelte)
+[Sandbox Example](https://codesandbox.io/s/workshop-data-viz-starter-ct37tm?file=/App.svelte)
 
 ## The slides for the workshop are available at the link below. 
-[Slides] (https://docs.google.com/presentation/d/1sxygSHBJEcQXmhciRbjDDz87WXcWXBIHlPDl0CU_Taw/edit?usp=sharing)
+[Slides](https://docs.google.com/presentation/d/1sxygSHBJEcQXmhciRbjDDz87WXcWXBIHlPDl0CU_Taw/edit?usp=sharing)
 
 ## 1. Accessing Data
 ```js
