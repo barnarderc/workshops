@@ -1,6 +1,16 @@
-[Code Sandbox](https://codesandbox.io/dashboard)
+# Links We'll Be Working with Today: 
+
+The links will also be relinked below where they get used. 
+1. [Code Sandbox](https://codesandbox.io/dashboard)
+2. [Visualization Starter Code](https://codesandbox.io/s/workshop-data-viz-starter-ct37tm?file=/App.svelte)
+3. [Final Visualization](https://codesandbox.io/s/in-progress-pokemon-kq4v56?file=/App.svelte)
+4. [Slides](https://docs.google.com/presentation/d/1sxygSHBJEcQXmhciRbjDDz87WXcWXBIHlPDl0CU_Taw/edit?usp=sharing)
 
 # SVGs
+
+## Open an Empty Sandbox on Code Sandbox:
+[Code Sandbox](https://codesandbox.io/dashboard)
+
 ## 1. Create SVG
 ```html
 <svg width="500" height="300"  style="border: 1px solid red">
@@ -63,6 +73,9 @@ font-size="10px"
 
 ## The slides for the workshop are available at the link below. 
 [Slides](https://docs.google.com/presentation/d/1sxygSHBJEcQXmhciRbjDDz87WXcWXBIHlPDl0CU_Taw/edit?usp=sharing)
+
+## This is what we are working towards. 
+[Final Visualization](https://codesandbox.io/s/in-progress-pokemon-kq4v56?file=/App.svelte)
 
 ## 1. Accessing Data
 ```js
